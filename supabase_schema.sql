@@ -49,12 +49,10 @@ CREATE POLICY "Allow public read access to matches"
     ON public.matches FOR SELECT USING (true);
 
 CREATE POLICY "Allow admin to insert matches" 
-    ON public.matches FOR INSERT USING (
-        -- Simple check: you can restrict this to admin users if you set up admin roles.
-        -- For simplicity, we allow authenticated users to view, and database admin bypasses RLS.
-        -- In a production environment, you would restrict write access.
+    ON public.matches FOR INSERT WITH CHECK (
+        -- Simple check: restrict this to admin users.
         (SELECT auth.jwt() ->> 'email') LIKE '%admin%' OR (SELECT auth.role()) = 'service_role'
-    );
+      );
 
 CREATE POLICY "Allow admin to update matches" 
     ON public.matches FOR UPDATE USING (true);
