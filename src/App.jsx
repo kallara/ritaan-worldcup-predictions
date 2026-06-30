@@ -460,6 +460,21 @@ export default function App() {
     return `Locks in ${hrs}h ${mins}m`;
   };
 
+  const formatMatchDateTime = (dateString) => {
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleString('en-IN', {
+        day: 'numeric',
+        month: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      });
+    } catch (e) {
+      return '';
+    }
+  };
+
   // Check if admin tab is visible: unlocked secretly by admin password
   const showAdminTab = isAdminModeUnlocked;
 
@@ -904,6 +919,9 @@ export default function App() {
                       {/* Match Info & Inputs */}
                       <div className="match-center-details">
                         <span className="match-meta-badge">{match.stage}</span>
+                        <div style={{ fontSize: '0.725rem', color: 'var(--text-muted)', marginTop: '0.3rem', fontWeight: 500 }} className="match-datetime">
+                          {formatMatchDateTime(match.kickoff_time)}
+                        </div>
                         
                         {match.is_completed ? (
                           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem' }}>
