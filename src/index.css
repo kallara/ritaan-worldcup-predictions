@@ -880,4 +880,17 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 8px 30px rgba(0, 230, 118, 0.18), var(--shadow-main) !important;
 }
 
+/* Footer contact icons micro-interactions */
+.contact-icon-link {
+  opacity: 0.65;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.contact-icon-link:hover {
+  opacity: 1;
+  transform: scale(1.22);
+  filter: drop-shadow(0 0 6px rgba(0, 230, 118, 0.35));
+}
+
+
 

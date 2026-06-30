@@ -20,7 +20,8 @@ import {
   Flame,
   Activity,
   Users,
-  Download
+  Download,
+  Mail
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { dbService, calculatePoints } from './dbService';
@@ -1753,7 +1754,18 @@ export default function App() {
       <footer style={{ marginTop: 'auto', paddingTop: '2.5rem', paddingBottom: '1.25rem', textAlign: 'center', fontSize: '0.75rem', color: 'var(--text-muted)', borderTop: '1px solid var(--border-light)', position: 'relative' }}>
         <p>© 2026 RITAAN Trivandrum Chapter. All Rights Reserved.</p>
         <p style={{ marginTop: '0.25rem' }}>Made with ❤️ by RIT Kottayam Alumni Network Trivandrum Chapter.</p>
-        <p style={{ marginTop: '0.4rem', fontSize: '0.7rem', opacity: 0.85 }}>Designed & Developed by <a href="mailto:sujithbkallara@gmail.com" style={{ color: 'var(--secondary)', fontWeight: 700, textDecoration: 'none' }} className="designer-link">Kallara</a></p>
+        <div style={{ marginTop: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.65rem', opacity: 0.85, flexWrap: 'wrap' }}>
+          <span>Designed & Developed by <a href="mailto:sujithbkallara@gmail.com" style={{ color: 'var(--secondary)', fontWeight: 700, textDecoration: 'none' }} className="designer-link">Kallara</a></span>
+          <span style={{ color: 'rgba(255,255,255,0.1)' }}>|</span>
+          <a href="https://wa.me/919995856425" target="_blank" rel="noopener noreferrer" style={{ color: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="contact-icon-link" title="Contact on WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.625 1.451 5.403.002 9.803-4.394 9.806-9.799.002-2.618-1.01-5.078-2.855-6.927-1.844-1.848-4.296-2.865-6.916-2.866-5.41 0-9.813 4.398-9.815 9.801-.001 1.548.413 3.062 1.2 4.407l-.999 3.648 3.734-.975zm10.741-6.953c-.346-.173-2.046-1.01-2.358-1.124-.313-.115-.542-.173-.77.173-.228.346-.885 1.124-1.085 1.355-.2.23-.4.259-.746.086-1.928-.962-3.14-1.603-4.398-3.76-.329-.567-.099-.873.173-1.144.246-.243.542-.634.812-.952.19-.228.257-.39.385-.649.128-.26.064-.487-.032-.66-.096-.173-.77-1.854-1.055-2.546-.277-.667-.56-.576-.77-.587-.199-.01-.427-.01-.655-.01-.228 0-.6.086-.913.433-.313.346-1.197 1.171-1.197 2.855 0 1.684 1.228 3.313 1.4 3.542.173.228 2.417 3.693 5.855 5.177.818.353 1.456.564 1.956.723.822.26 1.57.223 2.161.135.66-.099 2.046-.836 2.331-1.644.285-.808.285-1.5.2-1.644-.085-.145-.313-.23-.659-.404z"/>
+            </svg>
+          </a>
+          <a href="mailto:sujithbkallara@gmail.com" style={{ color: 'var(--secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="contact-icon-link" title="Send Email">
+            <Mail size={14} />
+          </a>
+        </div>
         
         {/* Subtle Admin Trigger Gear */}
         <button 
