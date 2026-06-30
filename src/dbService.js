@@ -214,7 +214,7 @@ const DEFAULT_MATCHES = [
 // Helper to calculate points for a prediction
 export function calculatePoints(predA, predB, actualA, actualB) {
   if (actualA === null || actualB === null || actualA === undefined || actualB === undefined) {
-    return null;
+    return 0;
   }
   // Exact Score Match = 3 Points
   if (parseInt(predA) === parseInt(actualA) && parseInt(predB) === parseInt(actualB)) {
