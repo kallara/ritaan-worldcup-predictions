@@ -97,9 +97,9 @@ const DEFAULT_MATCHES = [
     team_b_code: 'ar',
     kickoff_time: '2026-06-27T22:00:00Z',
     stage: 'Group Stage',
-    actual_score_a: null,
-    actual_score_b: null,
-    is_completed: false
+    actual_score_a: 1,
+    actual_score_b: 3,
+    is_completed: true
   },
   {
     id: 8,
@@ -107,11 +107,11 @@ const DEFAULT_MATCHES = [
     team_b: 'Canada',
     team_a_code: 'za',
     team_b_code: 'ca',
-    kickoff_time: '2026-06-28T18:00:00Z',
+    kickoff_time: '2026-06-29T01:00:00Z',
     stage: 'Round of 32',
-    actual_score_a: null,
-    actual_score_b: null,
-    is_completed: false
+    actual_score_a: 0,
+    actual_score_b: 1,
+    is_completed: true
   },
   {
     id: 9,
@@ -119,11 +119,11 @@ const DEFAULT_MATCHES = [
     team_b: 'Japan',
     team_a_code: 'br',
     team_b_code: 'jp',
-    kickoff_time: '2026-06-29T19:00:00Z',
+    kickoff_time: '2026-06-30T00:00:00Z',
     stage: 'Round of 32',
-    actual_score_a: null,
-    actual_score_b: null,
-    is_completed: false
+    actual_score_a: 2,
+    actual_score_b: 1,
+    is_completed: true
   },
   {
     id: 10,
@@ -131,11 +131,11 @@ const DEFAULT_MATCHES = [
     team_b: 'Paraguay',
     team_a_code: 'de',
     team_b_code: 'py',
-    kickoff_time: '2026-06-29T17:00:00Z',
+    kickoff_time: '2026-06-30T21:00:00Z',
     stage: 'Round of 32',
-    actual_score_a: null,
-    actual_score_b: null,
-    is_completed: false
+    actual_score_a: 1,
+    actual_score_b: 1,
+    is_completed: true
   },
   {
     id: 11,
@@ -143,11 +143,11 @@ const DEFAULT_MATCHES = [
     team_b: 'Morocco',
     team_a_code: 'nl',
     team_b_code: 'ma',
-    kickoff_time: '2026-06-30T20:00:00Z',
+    kickoff_time: '2026-07-01T02:00:00Z',
     stage: 'Round of 32',
-    actual_score_a: null,
-    actual_score_b: null,
-    is_completed: false
+    actual_score_a: 1,
+    actual_score_b: 1,
+    is_completed: true
   },
   {
     id: 12,
@@ -157,9 +157,9 @@ const DEFAULT_MATCHES = [
     team_b_code: 'no',
     kickoff_time: '2026-06-30T18:00:00Z',
     stage: 'Round of 32',
-    actual_score_a: null,
-    actual_score_b: null,
-    is_completed: false
+    actual_score_a: 0,
+    actual_score_b: 1,
+    is_completed: true
   },
   {
     id: 13,
@@ -167,7 +167,7 @@ const DEFAULT_MATCHES = [
     team_b: 'Sweden',
     team_a_code: 'fr',
     team_b_code: 'se',
-    kickoff_time: '2026-06-30T22:00:00Z',
+    kickoff_time: '2026-06-30T21:00:00Z',
     stage: 'Round of 32',
     actual_score_a: null,
     actual_score_b: null,
@@ -179,7 +179,7 @@ const DEFAULT_MATCHES = [
     team_b: 'Bosnia & Herz.',
     team_a_code: 'us',
     team_b_code: 'ba',
-    kickoff_time: '2026-07-02T20:00:00Z',
+    kickoff_time: '2026-07-02T00:00:00Z',
     stage: 'Round of 32',
     actual_score_a: null,
     actual_score_b: null,
@@ -204,6 +204,90 @@ const DEFAULT_MATCHES = [
     team_a_code: 'ar',
     team_b_code: 'cv',
     kickoff_time: '2026-07-03T22:00:00Z',
+    stage: 'Round of 32',
+    actual_score_a: null,
+    actual_score_b: null,
+    is_completed: false
+  },
+  {
+    id: 17,
+    team_a: 'Mexico',
+    team_b: 'Ecuador',
+    team_a_code: 'mx',
+    team_b_code: 'ec',
+    kickoff_time: '2026-07-01T01:00:00Z',
+    stage: 'Round of 32',
+    actual_score_a: null,
+    actual_score_b: null,
+    is_completed: false
+  },
+  {
+    id: 18,
+    team_a: 'England',
+    team_b: 'DR Congo',
+    team_a_code: 'gb',
+    team_b_code: 'cd',
+    kickoff_time: '2026-07-01T16:00:00Z',
+    stage: 'Round of 32',
+    actual_score_a: null,
+    actual_score_b: null,
+    is_completed: false
+  },
+  {
+    id: 19,
+    team_a: 'Belgium',
+    team_b: 'Senegal',
+    team_a_code: 'be',
+    team_b_code: 'sn',
+    kickoff_time: '2026-07-01T20:00:00Z',
+    stage: 'Round of 32',
+    actual_score_a: null,
+    actual_score_b: null,
+    is_completed: false
+  },
+  {
+    id: 20,
+    team_a: 'Spain',
+    team_b: 'Austria',
+    team_a_code: 'es',
+    team_b_code: 'at',
+    kickoff_time: '2026-07-02T20:00:00Z',
+    stage: 'Round of 32',
+    actual_score_a: null,
+    actual_score_b: null,
+    is_completed: false
+  },
+  {
+    id: 21,
+    team_a: 'Portugal',
+    team_b: 'Croatia',
+    team_a_code: 'pt',
+    team_b_code: 'hr',
+    kickoff_time: '2026-07-02T23:00:00Z',
+    stage: 'Round of 32',
+    actual_score_a: null,
+    actual_score_b: null,
+    is_completed: false
+  },
+  {
+    id: 22,
+    team_a: 'Switzerland',
+    team_b: 'Algeria',
+    team_a_code: 'ch',
+    team_b_code: 'dz',
+    kickoff_time: '2026-07-03T03:00:00Z',
+    stage: 'Round of 32',
+    actual_score_a: null,
+    actual_score_b: null,
+    is_completed: false
+  },
+  {
+    id: 23,
+    team_a: 'Colombia',
+    team_b: 'Ghana',
+    team_a_code: 'co',
+    team_b_code: 'gh',
+    kickoff_time: '2026-07-04T01:30:00Z',
     stage: 'Round of 32',
     actual_score_a: null,
     actual_score_b: null,
@@ -784,22 +868,40 @@ export const dbService = {
     }
 
     try {
-      // Bypassing browser CORS using AllOrigins proxy
-      const proxyUrl = "https://api.allorigins.win/raw?url=";
+      // Bypassing browser CORS using corsproxy.io with query-parameter custom headers
+      const targetMatchesUrl = "https://api.football-data.org/v4/competitions/WC/matches";
+      const targetScorersUrl = "https://api.football-data.org/v4/competitions/WC/scorers";
       
-      const matchesUrl = `${proxyUrl}${encodeURIComponent("https://api.football-data.org/v4/competitions/WC/matches")}`;
-      const scorersUrl = `${proxyUrl}${encodeURIComponent("https://api.football-data.org/v4/competitions/WC/scorers")}`;
+      const matchesUrl = `https://corsproxy.io/?url=${encodeURIComponent(targetMatchesUrl)}&reqHeaders=X-Auth-Token:${encodeURIComponent(token)}`;
+      const scorersUrl = `https://corsproxy.io/?url=${encodeURIComponent(targetScorersUrl)}&reqHeaders=X-Auth-Token:${encodeURIComponent(token)}`;
 
-      const [matchesRes, scorersRes] = await Promise.all([
-        fetch(matchesUrl, { headers: { "X-Auth-Token": token } }).then(r => {
-          if (!r.ok) throw new Error(`Matches API error: ${r.status}`);
-          return r.json();
-        }),
-        fetch(scorersUrl, { headers: { "X-Auth-Token": token } }).then(r => {
-          if (!r.ok) throw new Error(`Scorers API error: ${r.status}`);
-          return r.json();
-        })
-      ]);
+      let matchesRes = null;
+      let scorersRes = null;
+
+      try {
+        const res = await fetch(matchesUrl);
+        if (!res.ok) {
+          const errBody = await res.text();
+          console.error("Matches API error response:", errBody);
+          throw new Error(`Matches API error: ${res.status} - ${errBody}`);
+        }
+        matchesRes = await res.json();
+      } catch (err) {
+        console.error("Matches sync fetch failed", err);
+        throw new Error(`Matches API failed: ${err.message}`);
+      }
+
+      try {
+        const res = await fetch(scorersUrl);
+        if (res.ok) {
+          scorersRes = await res.json();
+        } else {
+          const errBody = await res.text();
+          console.warn(`Scorers API not available: ${res.status} - ${errBody}`);
+        }
+      } catch (err) {
+        console.warn("Scorers sync fetch failed (ignoring)", err);
+      }
 
       // 1. Process and Sync Matches
       const apiMatches = matchesRes.matches || [];
@@ -816,14 +918,15 @@ export const dbService = {
         let dbMatch = null;
         if (this.isLocalMode()) {
           dbMatch = localMatches.find(m => 
-            m.team_a.toLowerCase() === apiMatch.homeTeam.name.toLowerCase() ||
-            m.team_b.toLowerCase() === apiMatch.awayTeam.name.toLowerCase()
+            (m.team_a.toLowerCase() === apiMatch.homeTeam.name.toLowerCase() && m.team_b.toLowerCase() === apiMatch.awayTeam.name.toLowerCase()) ||
+            (m.team_a.toLowerCase() === apiMatch.awayTeam.name.toLowerCase() && m.team_b.toLowerCase() === apiMatch.homeTeam.name.toLowerCase())
           );
         } else {
+          // Enforce that both teams must match the database record in either order
           const { data } = await supabase
             .from('matches')
             .select('*')
-            .or(`team_a.ilike.%${apiMatch.homeTeam.name}%,team_b.ilike.%${apiMatch.awayTeam.name}%`);
+            .or(`and(team_a.ilike.%${apiMatch.homeTeam.name}%,team_b.ilike.%${apiMatch.awayTeam.name}%),and(team_a.ilike.%${apiMatch.awayTeam.name}%,team_b.ilike.%${apiMatch.homeTeam.name}%)`);
           dbMatch = data && data[0];
         }
 
@@ -834,7 +937,7 @@ export const dbService = {
       }
 
       // 2. Process and Sync Scorers/Stats
-      const apiScorers = scorersRes.scorers || [];
+      const apiScorers = scorersRes ? (scorersRes.scorers || []) : [];
       const updatedScorers = apiScorers.slice(0, 10).map((s, idx) => ({
         rank: idx + 1,
         name: s.player.name,

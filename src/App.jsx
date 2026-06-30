@@ -58,6 +58,7 @@ export default function App() {
   const [selectedGroup, setSelectedGroup] = useState('A');
   const [syncApiKey, setSyncApiKey] = useState('');
   const [syncing, setSyncing] = useState(false);
+  const hasEnvKey = !!import.meta.env.VITE_FOOTBALL_API_KEY;
 
   // Admin add match state
   const [isAdminModeUnlocked, setIsAdminModeUnlocked] = useState(false);
@@ -1544,11 +1545,12 @@ export default function App() {
                 
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'flex-end' }}>
                   <div className="form-group" style={{ flex: 1, minWidth: '240px', marginBottom: 0 }}>
-                    <label style={{ margin: 0 }}>Football-Data.org API Key (Optional)</label>
+                    <label style={{ margin: 0 }}>Football-Data.org API Key {hasEnvKey ? "(Configured via .env)" : "(Optional)"}</label>
                     <input 
                       type="password" 
                       className="form-input" 
-                      placeholder="Enter API Token to sync live data" 
+                      autoComplete="new-password"
+                      placeholder={hasEnvKey ? "Using key loaded from environment..." : "Enter API Token to sync live data"} 
                       value={syncApiKey}
                       onChange={e => setSyncApiKey(e.target.value)}
                     />
@@ -1779,6 +1781,9 @@ export default function App() {
       <footer style={{ marginTop: 'auto', paddingTop: '2.5rem', paddingBottom: '1.25rem', textAlign: 'center', fontSize: '0.75rem', color: 'var(--text-muted)', borderTop: '1px solid var(--border-light)', position: 'relative' }}>
         <p>© 2026 RITAAN Trivandrum Chapter. All Rights Reserved.</p>
         <p style={{ marginTop: '0.25rem' }}>Made with ❤️ by RIT Kottayam Alumni Network Trivandrum Chapter.</p>
+        <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.25)', marginTop: '0.35rem' }}>
+          Database Mode: {import.meta.env.VITE_SUPABASE_URL ? `Cloud Database` : 'Local Browser Storage'}
+        </div>
         <div style={{ marginTop: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.65rem', opacity: 0.85, flexWrap: 'wrap' }}>
           <span>Designed & Developed by <a href="mailto:sujithbkallara@gmail.com" style={{ color: 'var(--secondary)', fontWeight: 700, textDecoration: 'none' }} className="designer-link">Kallara</a></span>
           <span style={{ color: 'rgba(255,255,255,0.1)' }}>|</span>
