@@ -62,6 +62,9 @@ export default function App() {
   const [isAdminModeUnlocked, setIsAdminModeUnlocked] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [adminPasswordInput, setAdminPasswordInput] = useState('');
+
+  // Predictions Sub-tab filter state
+  const [predSubTab, setPredSubTab] = useState('upcoming');
   const [adminTeamA, setAdminTeamA] = useState('');
   const [adminTeamB, setAdminTeamB] = useState('');
   const [adminTeamACode, setAdminTeamACode] = useState('');
@@ -490,24 +493,8 @@ export default function App() {
         )}
       </header>
 
-      {/* 2. Supabase / Local Mode Status Banner */}
-      <div className="demo-banner">
-        <Database size={20} className={dbService.isLocalMode() ? "text-cyan" : "text-green"} style={{ color: dbService.isLocalMode() ? 'var(--secondary)' : 'var(--primary)' }} />
-        <div className="demo-banner-content" style={{ flex: 1 }}>
-          <h4>{dbService.isLocalMode() ? 'Running in Local Demo Mode' : 'Connected to Supabase Cloud Database'}</h4>
-          <p>
-            {dbService.isLocalMode() 
-              ? 'Predictions and user data are saved to your browser localStorage. Copy the .env fields to connect your shared database.'
-              : 'Live sync active! Shared predictions and real-time leaderboards are live for all RITAAN members.'
-            }
-          </p>
-        </div>
-        {isAdminModeUnlocked && (
-          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--accent)' }}>
-            Admin Mode Active
-          </span>
-        )}
-      </div>
+      {/* Space spacer after header */}
+      <div style={{ height: '1rem' }}></div>
 
       {/* Status Alerts */}
       {error && (
@@ -841,13 +828,65 @@ export default function App() {
                 <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Kickoff times are locked automatically</span>
               </div>
 
+              {/* Predictions Sub-tabs */}
+              <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-light)', paddingBottom: '0.75rem', flexWrap: 'wrap' }}>
+                <button 
+                  onClick={() => setPredSubTab('upcoming')}
+                  style={{ 
+                    padding: '0.45rem 1.15rem', 
+                    fontSize: '0.85rem',
+                    background: predSubTab === 'upcoming' ? 'var(--primary)' : 'rgba(255,255,255,0.02)',
+                    color: predSubTab === 'upcoming' ? '#030a06' : 'var(--text-muted)',
+                    fontWeight: predSubTab === 'upcoming' ? 700 : 500,
+                    borderRadius: '8px',
+                    border: '1px solid ' + (predSubTab === 'upcoming' ? 'var(--primary)' : 'rgba(255,255,255,0.06)'),
+                    cursor: 'pointer',
+                    boxShadow: predSubTab === 'upcoming' ? '0 0 15px var(--primary-glow)' : 'none',
+                    transition: 'all 0.2s ease',
+                    width: 'auto'
+                  }}
+                >
+                  Active / Upcoming ({matches.filter(m => !m.is_completed).length})
+                </button>
+                <button 
+                  onClick={() => setPredSubTab('completed')}
+                  style={{ 
+                    padding: '0.45rem 1.15rem', 
+                    fontSize: '0.85rem',
+                    background: predSubTab === 'completed' ? 'var(--primary)' : 'rgba(255,255,255,0.02)',
+                    color: predSubTab === 'completed' ? '#030a06' : 'var(--text-muted)',
+                    fontWeight: predSubTab === 'completed' ? 700 : 500,
+                    borderRadius: '8px',
+                    border: '1px solid ' + (predSubTab === 'completed' ? 'var(--primary)' : 'rgba(255,255,255,0.06)'),
+                    cursor: 'pointer',
+                    boxShadow: predSubTab === 'completed' ? '0 0 15px var(--primary-glow)' : 'none',
+                    transition: 'all 0.2s ease',
+                    width: 'auto'
+                  }}
+                >
+                  Completed Results ({matches.filter(m => m.is_completed).length})
+                </button>
+              </div>
+
               <div className="match-list">
-                {matches.map(match => {
-                  const prediction = predictions.find(p => p.match_id === match.id);
-                  const isLocked = new Date() >= new Date(match.kickoff_time);
-                  
-                  return (
-                    <div className={`glass-card match-card pitch-theme ${isLocked ? '' : 'highlighted'}`} key={match.id}>
+                {(() => {
+                  const filtered = matches.filter(m => predSubTab === 'upcoming' ? !m.is_completed : m.is_completed);
+                  if (filtered.length === 0) {
+                    return (
+                      <div className="glass-card" style={{ textAlign: 'center', padding: '3rem', color: 'var(--text-muted)', gridColumn: 'span 2' }}>
+                        {predSubTab === 'upcoming' 
+                          ? 'All matches have completed! Ranks are settled.' 
+                          : 'No completed matches found yet.'
+                        }
+                      </div>
+                    );
+                  }
+                  return filtered.map(match => {
+                    const prediction = predictions.find(p => p.match_id === match.id);
+                    const isLocked = new Date() >= new Date(match.kickoff_time);
+                    
+                    return (
+                      <div className={`glass-card match-card pitch-theme ${isLocked ? '' : 'highlighted'}`} key={match.id}>
                       {/* Team A */}
                       <div className="team-container">
                         <img className="team-flag" src={getFlagUrl(match.team_a_code)} alt={match.team_a} />
@@ -950,7 +989,8 @@ export default function App() {
                       </div>
                     </div>
                   );
-                })}
+                });
+              })()}
               </div>
             </div>
           )}
