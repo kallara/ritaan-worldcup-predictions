@@ -108,10 +108,17 @@ export default function App() {
     checkUserSession();
   }, []);
 
-  // Fetch match and leaderboard data when user changes or tab changes
+  // Fetch match and leaderboard data when user changes or tab changes, with background polling
   useEffect(() => {
     if (user) {
       fetchData();
+      
+      // Auto-refresh match data & standings every 30 seconds
+      const pollInterval = setInterval(() => {
+        fetchData();
+      }, 30000);
+      
+      return () => clearInterval(pollInterval);
     }
   }, [user, activeTab]);
 
