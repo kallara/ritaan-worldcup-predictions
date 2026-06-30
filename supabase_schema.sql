@@ -120,7 +120,7 @@ INSERT INTO public.matches (id, team_a, team_b, team_a_code, team_b_code, kickof
 (9, 'Brazil', 'Japan', 'br', 'jp', '2026-06-29 19:00:00-05', 'Round of 32', null, null, false),
 (10, 'Germany', 'Paraguay', 'de', 'py', '2026-06-29 17:00:00-04', 'Round of 32', null, null, false),
 (11, 'Netherlands', 'Morocco', 'nl', 'ma', '2026-06-30 20:00:00-06', 'Round of 32', null, null, false),
-(12, 'Côte d\'Ivoire', 'Norway', 'ci', 'no', '2026-06-30 18:00:00+00', 'Round of 32', null, null, false),
+(12, 'Côte d''Ivoire', 'Norway', 'ci', 'no', '2026-06-30 18:00:00+00', 'Round of 32', null, null, false),
 (13, 'France', 'Sweden', 'fr', 'se', '2026-06-30 22:00:00+00', 'Round of 32', null, null, false),
 (14, 'USA', 'Bosnia & Herz.', 'us', 'ba', '2026-07-02 20:00:00+00', 'Round of 32', null, null, false),
 (15, 'Australia', 'Egypt', 'au', 'eg', '2026-07-03 18:00:00+00', 'Round of 32', null, null, false),
