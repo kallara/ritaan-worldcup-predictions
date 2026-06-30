@@ -672,8 +672,7 @@ export const dbService = {
             match_id: parseInt(matchId),
             pred_score_a: sA,
             pred_score_b: sB,
-            points_earned: points,
-            updated_at: new Date().toISOString()
+            points_earned: points
           },
           { onConflict: 'user_id,match_id' }
         );
