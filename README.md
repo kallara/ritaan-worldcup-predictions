@@ -39,7 +39,7 @@ Create a `.env` file in the root directory and add the following keys:
 ```env
 VITE_SUPABASE_URL=https://your-project-id.supabase.co
 VITE_SUPABASE_ANON_KEY=your-anon-public-api-key-here
-VITE_ADMIN_PASSWORD=ritaantvm2026
+VITE_ADMIN_PASSWORD=your-admin-password-here
 ```
 
 ---
